@@ -26,7 +26,7 @@ var storage =   multer.diskStorage({
 });
 
 var upload = multer({ storage : storage}).any();
-mongoose.connect('mongodb://localhost:27017/my_img_info');
+
 app.use(morgan('dev'));
 
 
