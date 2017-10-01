@@ -1,6 +1,6 @@
 // var switchInfo = require('./models/empSwitchSchema').switchInfo;
+var ImageSchema = require('./models/myImgSchema').ImageSchema;
 
-// const testFolder = './uploads';
 const fs = require('fs');
 module.exports = function(express, app,upload) {
 
@@ -25,26 +25,25 @@ module.exports = function(express, app,upload) {
         if (err) {
           return res.end(err.toString());
         }
-     
-        res.send('File is uploaded');
+        var imgInfo = new ImageSchema();
+        imgInfo.caption = req.body.data;
+        imgInfo.img = 'http://127.0.0.1:3000/uploads/'+req.files[0].fieldname + '-' +req.files[0].originalname;
+        imgInfo.save(function(err, data) {
+             console.log(data);
+            res.send(data);
+        });
+
+        
       });
     });
 
-    app.get('/api/getImage',function(req,res){
-        /////////////////////
-        var dir=__dirname + '/public/uploads';
-        var arr=[];
-        fs.readdir(dir,function(err, files){
-           if (err) {
-              return console.error(err);
-           }
-           files.forEach( function (file){
-              console.log( file );
-              arr.push('http://127.0.0.1:3000/uploads/'+file);
-           });
-           res.send(arr);
-        });        
-        //////////////////////
+    app.get('/api/getImage',function(req,res){     
+      ImageSchema.find().exec(function(err, data) {
+              res.send(data);
+
+          });
     });
 
 }
+
+

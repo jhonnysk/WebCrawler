@@ -6,7 +6,7 @@ var morgan=require('morgan');
 
 var multer  =   require('multer');
 
-// var mongoose=require('mongoose');
+var mongoose=require('mongoose');
 
 
 var bodyParser = require('body-parser');
@@ -21,12 +21,12 @@ var storage =   multer.diskStorage({
   },
   filename: function (req, file, callback) {
   	// console.log('fileeeeeeeeeee: '+JSON.stringify(file));
-    callback(null, file.fieldname + '-' + Date.now()+file.originalname);
+    callback(null, file.fieldname + '-' +file.originalname);
   }
 });
 
 var upload = multer({ storage : storage}).any();
-// mongoose.connect('mongodb://127.0.0.1/all_emp_info');
+mongoose.connect('mongodb://localhost:27017/my_img_info');
 app.use(morgan('dev'));
 
 
