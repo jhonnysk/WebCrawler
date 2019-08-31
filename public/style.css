@@ -23,3 +23,6 @@ video#remote {
   width: 500px;
   height: 500px;
 }
+  .fixedButton{
+    position:fixed;
+  }

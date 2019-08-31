@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>WebRTC</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -22,32 +23,27 @@
 }(jQuery));
 
 $(document).ready(function(){
+var allListElements=[];
+var prev=0;
+
   $("button").click(function(){
-    $('#3').html(null);
     $.get("/api/getData", function(data, status){
-      <!---->
-      // $('#1').text(data.articleList);
-
+      for(var i=0;i<prev;i++){
+        allListElements[i].remove();
+      }       
       $('#2').html(data.articleList).invisible();
-      var allListElements = $( ".cb-lv-main" );
-      var htmlString=[];
-
-      for(var i=0;i<allListElements.length;i++){
-        htmlString.push(allListElements[i]);
-        
-        // $('#3').append(allListElements[i]);
-      }
-      // console.log(htmlString )
-        $('#3').html(htmlString);
+      allListElements = $( ".cb-lv-main" );
+      prev=allListElements.length;
+      $('#3').html(allListElements);
     });
   });
 });
 </script>
 <body>
-<button style="position:fixed;">Send an HTTP GET request to a page and get the result back</button>
-<p id="1">asdasd</p>
-<p id="2">asdasd</p>
-<p id="3">asdasd</p>
+<button class="fixedButton" >Send an HTTP GET request to a page and get the result back</button>
+<p id="1"></p>
+<p id="2"></p>
+<p id="3"></p>
 <!--   <div id="login">
     <label for="username">Login</label>
     <input id="username" placeholder="Login" required="" autofocus="">
