@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>WebRTC</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<script>
+(function($) {
+    $.fn.invisible = function() {
+        return this.each(function() {
+            $(this).css("display", "none");
+        });
+    };
+    $.fn.visible = function() {
+        return this.each(function() {
+            $(this).css("visibility", "visible");
+        });
+    };
+}(jQuery));
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $('#3').html(null);
+    $.get("/api/getData", function(data, status){
+      <!---->
+      // $('#1').text(data.articleList);
+
+      $('#2').html(data.articleList).invisible();
+      var allListElements = $( ".cb-lv-main" );
+      var htmlString=[];
+
+      for(var i=0;i<allListElements.length;i++){
+        htmlString.push(allListElements[i]);
+        
+        // $('#3').append(allListElements[i]);
+      }
+      // console.log(htmlString )
+        $('#3').html(htmlString);
+    });
+  });
+});
+</script>
+<body>
+<button style="position:fixed;">Send an HTTP GET request to a page and get the result back</button>
+<p id="1">asdasd</p>
+<p id="2">asdasd</p>
+<p id="3">asdasd</p>
+<!--   <div id="login">
+    <label for="username">Login</label>
+    <input id="username" placeholder="Login" required="" autofocus="">
+    <button id="login">Login</button>
+  </div>
+
+  <div id="call">
+    <video id="local" autoplay></video>
+    <video id="remote" autoplay></video>
+
+    <div>
+      <input id="username-to-call" placeholder="Username to call" />
+      <button id="call">Call</button>
+      <button id="close-call">Close call</button>
+    </div>
+  </div>
+</body> -->
+<!-- <script src="client.js"></script> -->
+
+</html>

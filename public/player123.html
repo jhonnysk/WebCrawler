@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowplayer/7.2.7/skin/skin.css" rel="stylesheet">
+<script src="http://releases.flowplayer.org/7.1.0/flowplayer.min.js"></script>
+<!-- test a hls.js release -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/0.8.4/hls.min.js"></script>
+<!-- separate hlsjs plugin component -->
+<script src="http://releases.flowplayer.org/hlsjs/flowplayer.hlsjs.light.js"></script>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>This is a Headingasdsadsa</h1>
+<p>This is a paragraph.</p>
+
+<div data-live="true" data-ratio="0.5625" data-share="false" class="flowplayer" id="content_video_html5_api">
+ 
+       <video data-title="Live stream">
+        <!-- <source type="application/x-mpegurl"
+        src="https://wowzaec2demo.streamlock.net/vod-multitrack/_definst_/smil:ElephantsDream/ElephantsDream.smil/playlist.m3u8"> -->
+   </video>
+ 
+</div>
+<iframe allowfullscreen="true" frameborder="0" height="500" id="iframe-embed" mozallowfullscreen="true" scrolling="no" src="https://play.voxzer.org/watch?v=gAAAAABdY2hOdqHRJ_q2r1zioD9CFj0-tuR5quIU4-MO2iiYnNvRzdJy2z2ejU3ioM_7hveGAb05XKj74cM9FqF9iqTyGca11nwsNr63hQMgN4y42wY1Cn3CZPUc-yzBgNwERAzTo4WxJU5BEDshRfWySgPUl4Mqww==" webkitallowfullscreen="true" width="100%" __idm_frm__="58"></iframe>
+</body>
+<script >
+
+var player = flowplayer("#content_video_html5_api", {
+  clip: {
+    sources: [
+      {
+        type: "application/x-mpegurl",
+        src: "https://edge4.bioscopelive.com/hls/ke9UMWzcJGeR5F3hQXu7WA/1566799237/my_tv_low/index.m3u8"
+      }
+    ]
+  }
+});
+</script>
+
+</html>
