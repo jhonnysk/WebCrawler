@@ -23,6 +23,11 @@ video#remote {
   width: 500px;
   height: 500px;
 }
-  .fixedButton{
+.fixedButton,.biosope{
     position:fixed;
+    z-index: 1000;
   }
+.biosope{
+    margin-top: 25px;
+  }
+

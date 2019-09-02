@@ -30,10 +30,21 @@ module.exports = function(express, app,upload) {
     ];
     
 
-     app.get('/api/getData', function(req, res) {
+     app.get('/api/getData/:id', function(req, res) {
+      console.log()
+      var url1="https://www.cricbuzz.com/cricket-match/live-scores";
+      var url2="https://www.dsebd.org/displayCompany.php?name=MONNOSTAF";
+      var url3="https://www.bioscopelive.com/en/channel/independent-tv";
+      var mainUrl="";
+      if(req.params.id==1){
+        mainUrl=url2;
+      }
+      else if(req.params.id==2){
+         mainUrl=url3;
+      }
         
         new Crawler().configure({ignoreRelative: false,depth: 1})
-          .crawl("https://www.cricbuzz.com/cricket-match/live-scores", function onSuccess(page) {
+          .crawl(mainUrl, function onSuccess(page) {
             // console.log(page.url);
            res.send({
                 articleList: page.content

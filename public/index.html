@@ -23,27 +23,40 @@
 }(jQuery));
 
 $(document).ready(function(){
+   var player;
 var allListElements=[];
 var prev=0;
 
-  $("button").click(function(){
-    $.get("/api/getData", function(data, status){
+  $(".fixedButton").click(function(){
+    $.get("/api/getData/1", function(data, status){
       for(var i=0;i<prev;i++){
         allListElements[i].remove();
       }       
-      $('#2').html(data.articleList).invisible();
+      // $('#2').html(data.articleList).invisible();
+      $('#2').html(data.articleList);
       allListElements = $( ".cb-lv-main" );
       prev=allListElements.length;
       $('#3').html(allListElements);
     });
   });
+
+    $(".biosope").click(function(){
+    $.get("/api/getData/2", function(data, status){
+       $('#biosope').html(data.articleList);
+
+    });
+  });
+
 });
 </script>
 <body>
-<button class="fixedButton" >Send an HTTP GET request to a page and get the result back</button>
+<button class="fixedButton" >Send Request</button>
+<button class="biosope">Bioscope</button>
 <p id="1"></p>
 <p id="2"></p>
 <p id="3"></p>
+<p id="biosope"></p>
+
 <!--   <div id="login">
     <label for="username">Login</label>
     <input id="username" placeholder="Login" required="" autofocus="">
