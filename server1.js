@@ -31,20 +31,14 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());         
 app.use(bodyParser.urlencoded({ extended: true }));        
 
-
-app.use(function(request, response, next) {
-  response.header("Access-Control-Allow-Origin", "*");
-  response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    // response.setHeader('Access-Control-Allow-Credentials', true);
-
-  next();
-});
+//CORS Middleware
+app.use(function (req, res, next) {
+//Enabling CORS
+res.header('Access-Control-Allow-Origin', '*');
+res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT');
+res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization');
+next();
+})
 
 
 
