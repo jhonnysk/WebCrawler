@@ -28,7 +28,7 @@ var allListElements=[];
 var prev=0;
 
   $(".fixedButton").click(function(){
-    $.get("/api/getData/1", function(data, status){
+    $.get("/api/getData/mnsf", function(data, status){
       for(var i=0;i<prev;i++){
         allListElements[i].remove();
       }       
@@ -36,25 +36,43 @@ var prev=0;
       $('#2').html(data.articleList);
       allListElements = $( ".cb-lv-main" );
       prev=allListElements.length;
-      $('#3').html(allListElements);
+      $('#mnsf').html(allListElements);
     });
   });
-
+///////////////////////////////////////////////////////
     $(".biosope").click(function(){
     $.get("/api/getData/2", function(data, status){
        $('#biosope').html(data.articleList);
 
     });
   });
+///////////////////////////////////////////////////////
+    $(".batbc").click(function(){
+    $.get("/api/getData/batbc", function(data, status){
+       $('#batbc').html(data.articleList);
+
+    });
+  });
+///////////////////////////////////////////////////////
+    $(".kq").click(function(){
+    $.get("/api/getData/kq", function(data, status){
+       $('#kq').html(data.articleList);
+
+    });
+  });      
 
 });
 </script>
 <body>
-<button class="fixedButton" >Send Request</button>
+<button class="fixedButton">MNSF</button>
+<button class="batbc">BATBC</button>
+<button class="kq">K_Q</button>
 <button class="biosope">Bioscope</button>
 <p id="1"></p>
 <p id="2"></p>
-<p id="3"></p>
+<p id="mnsf"></p>
+<p id="batbc"></p>
+<p id="kq"></p>
 <p id="biosope"></p>
 
 <!--   <div id="login">

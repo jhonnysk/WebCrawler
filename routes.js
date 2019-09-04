@@ -33,14 +33,25 @@ module.exports = function(express, app,upload) {
      app.get('/api/getData/:id', function(req, res) {
       console.log()
       var url1="https://www.cricbuzz.com/cricket-match/live-scores";
-      var url2="https://www.dsebd.org/displayCompany.php?name=MONNOSTAF";
       var url3="https://www.bioscopelive.com/en/channel/independent-tv";
+
+      var mnsf="https://www.dsebd.org/displayCompany.php?name=MONNOSTAF";
+      var batbc="https://www.dsebd.org/displayCompany.php?name=BATBC";
+      var kq="https://www.dsebd.org/displayCompany.php?name=KAY&QUE";
+
       var mainUrl="";
-      if(req.params.id==1){
-        mainUrl=url2;
+      
+      if(req.params.id=="mnsf"){
+        mainUrl=mnsf;
       }
       else if(req.params.id==2){
          mainUrl=url3;
+      }
+      else if(req.params.id=="batbc"){
+         mainUrl=batbc;
+      }
+      else if(req.params.id=="kq"){
+         mainUrl=kq;
       }
         
         new Crawler().configure({ignoreRelative: false,depth: 1})
