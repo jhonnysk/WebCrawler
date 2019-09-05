@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>WebRTC</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -27,18 +31,26 @@ $(document).ready(function(){
 var allListElements=[];
 var prev=0;
 
-  $(".fixedButton").click(function(){
+  $("#mnsfApi").click(function(){
     $.get("/api/getData/mnsf", function(data, status){
       for(var i=0;i<prev;i++){
         allListElements[i].remove();
       }       
       // $('#2').html(data.articleList).invisible();
-      $('#2').html(data.articleList);
-      allListElements = $( ".cb-lv-main" );
-      prev=allListElements.length;
-      $('#mnsf').html(allListElements);
+      // $('#2').html(data.articleList);
+      // allListElements = $( ".cb-lv-main" );
+      // prev=allListElements.length;
+      $('#mnsf').html(data.articleList);
+      console.log("mnsf pos:",$("#mnsf").position());
     });
   });
+
+    $("#mnsfpt").click(function(){
+    $('html, body').animate({
+        scrollTop: $("#mnsf").offset().top
+    }, 2000);
+    return false; 
+  });   
 ///////////////////////////////////////////////////////
     $(".biosope").click(function(){
     $.get("/api/getData/2", function(data, status){
@@ -47,27 +59,44 @@ var prev=0;
     });
   });
 ///////////////////////////////////////////////////////
-    $(".batbc").click(function(){
+    $("#batbcApi").click(function(){
     $.get("/api/getData/batbc", function(data, status){
        $('#batbc').html(data.articleList);
 
     });
   });
+    $("#batbcpt").click(function(){
+    $('html, body').animate({
+        scrollTop: $("#batbc").offset().top
+    }, 2000);
+    return false; 
+  });    
 ///////////////////////////////////////////////////////
-    $(".kq").click(function(){
+    $("#kqApi").click(function(){
     $.get("/api/getData/kq", function(data, status){
        $('#kq').html(data.articleList);
 
     });
-  });      
+  });     
+    $("#kqpt").click(function(){
+    $('html, body').animate({
+        scrollTop: $("#kq").offset().top
+    }, 2000);
+    return false; 
+  });   
 
 });
 </script>
 <body>
-<button class="fixedButton">MNSF</button>
-<button class="batbc">BATBC</button>
-<button class="kq">K_Q</button>
-<button class="biosope">Bioscope</button>
+<button id="mnsfApi" class="fixedButton">MNSF</button>
+<button id="mnsfpt" class="fixedButton" style="margin-left: 60px;">Point</button>
+
+<button id="batbcApi" class="batbc">BATBC</button>
+<button id="batbcpt" class="batbc" style="margin-left: 60px;">Point</button>
+
+<button id="kqApi" class="kq">K_Q</button>
+<button id="kqpt" class="kq" style="margin-left: 60px;">Point</button>
+<!-- <button class="biosope">Bioscope</button><button class="biosope" style="margin-left: 60px;">Point</button> -->
 <p id="1"></p>
 <p id="2"></p>
 <p id="mnsf"></p>
