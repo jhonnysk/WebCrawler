@@ -23,16 +23,27 @@ video#remote {
   width: 500px;
   height: 500px;
 }
-.fixedButton,.batbc,.kq,.biosope{
+.fixedButton,.batbc,.kq,.biosope,.watacem,.STYLECRAFT,.Top20{
     position:fixed;
     z-index: 1000;
   }
-    .batbc{
-    margin-top: 25px;
+  .batbc{
+    margin-top: 30px;
   }
   .kq{
-    margin-top: 50px;
+    margin-top: 60px;
   }
+.watacem{
+    margin-top: 90px;
+  }
+
+ .STYLECRAFT{
+    margin-top: 130px;
+  } 
+
+ .Top20{
+    margin-top: 180px;
+  }    
 
 .biosope{
     margin-top: 80px;

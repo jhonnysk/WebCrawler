@@ -38,7 +38,9 @@ module.exports = function(express, app,upload) {
       var mnsf="https://www.dsebd.org/displayCompany.php?name=MONNOSTAF";
       var batbc="https://www.dsebd.org/displayCompany.php?name=BATBC";
       var kq="https://www.dsebd.org/displayCompany.php?name=KAY&QUE";
-
+      var watacem="https://www.dsebd.org/displayCompany.php?name=WATACHEM";
+      var STYLECRAFT="https://www.dsebd.org/displayCompany.php?name=STYLECRAFT";
+      var top20="https://www.dsebd.org/top_20_share.php";
       var mainUrl="";
       
       if(req.params.id=="mnsf"){
@@ -53,6 +55,15 @@ module.exports = function(express, app,upload) {
       else if(req.params.id=="kq"){
          mainUrl=kq;
       }
+      else if(req.params.id=="watacem"){
+         mainUrl=watacem;
+      }
+      else if(req.params.id=="STYLECRAFT"){
+         mainUrl=STYLECRAFT;
+      }      
+      else if(req.params.id=="top20"){
+         mainUrl=top20;
+      }      
         
         new Crawler().configure({ignoreRelative: false,depth: 1})
           .crawl(mainUrl, function onSuccess(page) {

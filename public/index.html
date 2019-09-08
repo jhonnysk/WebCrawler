@@ -83,26 +83,81 @@ var prev=0;
         scrollTop: $("#kq").offset().top
     }, 2000);
     return false; 
-  });   
+  });
+///////////////////////////////////////////////////////
+    $("#watacemApi").click(function(){
+    $.get("/api/getData/watacem", function(data, status){
+       $('#watacem').html(data.articleList);
+
+    });
+  });     
+    $("#watacempt").click(function(){
+    $('html, body').animate({
+        scrollTop: $("#watacem").offset().top
+    }, 2000);
+    return false; 
+  });
+
+///////////////////////////////////////////////////////
+    $("#STYLECRAFTApi").click(function(){
+    $.get("/api/getData/STYLECRAFT", function(data, status){
+       $('#STYLECRAFT').html(data.articleList);
+
+    });
+  });     
+    $("#STYLECRAFTpt").click(function(){
+    $('html, body').animate({
+        scrollTop: $("#STYLECRAFT").offset().top
+    }, 2000);
+    return false; 
+  });  
+
+
+
+///////////////////////////////////////////////////////
+    $("#Top20Api").click(function(){
+    $.get("/api/getData/top20", function(data, status){
+       $('#Top20').html(data.articleList);
+
+    });
+  });     
+    $("#Top20pt").click(function(){
+    $('html, body').animate({
+        scrollTop: $("#Top20").offset().top
+    }, 2000);
+    return false; 
+  });         
 
 });
 </script>
 <body>
 <button id="mnsfApi" class="fixedButton">MNSF</button>
-<button id="mnsfpt" class="fixedButton" style="margin-left: 60px;">Point</button>
+<button id="mnsfpt" class="fixedButton" style="margin-left: 100px;">Point</button>
 
 <button id="batbcApi" class="batbc">BATBC</button>
-<button id="batbcpt" class="batbc" style="margin-left: 60px;">Point</button>
+<button id="batbcpt" class="batbc" style="margin-left: 100px;">Point</button>
 
 <button id="kqApi" class="kq">K_Q</button>
-<button id="kqpt" class="kq" style="margin-left: 60px;">Point</button>
+<button id="kqpt" class="kq" style="margin-left: 100px;">Point</button>
+
+<button id="watacemApi" class="watacem">Watacem</button>
+<button id="watacempt" class="watacem" style="margin-left: 100px;">Point</button>
+
+<button id="STYLECRAFTApi" class="STYLECRAFT">STYLECRAFT</button>
+<button id="STYLECRAFTpt" class="STYLECRAFT" style="margin-left: 100px;">Point</button>
+
+<button id="Top20Api" class="Top20">Top20</button>
+<button id="Top20pt" class="Top20" style="margin-left: 100px;">Point</button>
 <!-- <button class="biosope">Bioscope</button><button class="biosope" style="margin-left: 60px;">Point</button> -->
 <p id="1"></p>
 <p id="2"></p>
 <p id="mnsf"></p>
 <p id="batbc"></p>
 <p id="kq"></p>
-<p id="biosope"></p>
+<p id="watacem"></p>
+<p id="STYLECRAFT"></p>
+<p id="Top20"></p>
+<!-- <p id="biosope"></p> -->
 
 <!--   <div id="login">
     <label for="username">Login</label>
