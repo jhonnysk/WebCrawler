@@ -115,6 +115,18 @@ var prev=0;
 
 
 ///////////////////////////////////////////////////////
+    $("#AllApi").click(function(){
+      document.getElementById("mnsfApi").click();
+      document.getElementById("batbcApi").click();
+      document.getElementById("kqApi").click();
+      document.getElementById("watacemApi").click();
+      document.getElementById("STYLECRAFTApi").click();
+      document.getElementById("Top20Api").click();
+
+  });     
+
+
+///////////////////////////////////////////////////////
     $("#Top20Api").click(function(){
     $.get("/api/getData/top20", function(data, status){
        $('#Top20').html(data.articleList);
@@ -148,6 +160,8 @@ var prev=0;
 
 <button id="Top20Api" class="Top20">Top20</button>
 <button id="Top20pt" class="Top20" style="margin-left: 100px;">Point</button>
+
+<button id="AllApi" class="All">All</button>
 <!-- <button class="biosope">Bioscope</button><button class="biosope" style="margin-left: 60px;">Point</button> -->
 <p id="1"></p>
 <p id="2"></p>

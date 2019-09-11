@@ -23,7 +23,7 @@ video#remote {
   width: 500px;
   height: 500px;
 }
-.fixedButton,.batbc,.kq,.biosope,.watacem,.STYLECRAFT,.Top20{
+.fixedButton,.batbc,.kq,.biosope,.watacem,.STYLECRAFT,.Top20,.All{
     position:fixed;
     z-index: 1000;
   }
@@ -43,7 +43,10 @@ video#remote {
 
  .Top20{
     margin-top: 180px;
-  }    
+  } 
+  .All{
+    margin-top: 220px;
+  }      
 
 .biosope{
     margin-top: 80px;
